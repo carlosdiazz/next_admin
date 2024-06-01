@@ -9,7 +9,7 @@ export const metadata = {
   description: "Listados de TOdo",
 };
 
-export default async function RestTodosPage() {
+export default async function ServerTodosPages() {
   //useEffect(() => {
   //  fetch("/api/todos")
   //    .then((resp) => resp.json())
@@ -20,6 +20,7 @@ export default async function RestTodosPage() {
 
   return (
     <div>
+      <span className="text-3xl mb-10">Server Actions</span>
       {/* TODO: agregar formualrio apra agregar*/}
       <div className="w-full px-3 mx-5 mb-5">
         <NewTodo />
