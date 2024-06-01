@@ -8,6 +8,9 @@ docker compose up -d
 
 2. Renombrar el .env.template a .env
 3. Reemplazar Variables
+4. Ejecutar Comando ```npm install```
+5. Ejcutar comando ```npm run dev```
+6. Ejecutar el SEED para [crear la base de datos local](localhost:3000/api/sed)
 
 # Prisma Commands
 1. Para inicializar el Prixma configutre
