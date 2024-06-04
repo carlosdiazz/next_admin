@@ -23,9 +23,10 @@ export const toggleTodo = async (
   if (!todo) {
     throw `Todo con id ${id} no existe`;
   }
+  const user = await getUserServerSession();
 
   const updatedTodo = await prisma.todo.update({
-    where: { id },
+    where: { id, userId: user!.id },
     data: { complete },
   });
 
@@ -50,8 +51,9 @@ export const addTodo = async (description: string) => {
 };
 
 export const deleteCompletedAction = async (): Promise<void> => {
+  const user = await getUserServerSession();
   await prisma.todo.deleteMany({
-    where: { complete: true },
+    where: { complete: true, userId: user!.id },
   });
   revalidatePath("/dashboard/server-todos");
 };
