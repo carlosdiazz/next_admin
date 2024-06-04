@@ -1,8 +1,10 @@
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
+import { getUserServerSession } from "@/auth";
 import prisma from "@/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Listados de TOdo",
@@ -16,7 +18,13 @@ export default async function ServerTodosPages() {
   //    .then(console.log);
   //}, []);
 
-  const todos = await prisma.todo.findMany({ orderBy: { createAt: "desc", } });
+  const user = await getUserServerSession();
+  if (!user) redirect("/api/auth/signin");
+
+  const todos = await prisma.todo.findMany({
+    where: { userId: user.id },
+    orderBy: { createAt: "desc" },
+  });
 
   return (
     <div>

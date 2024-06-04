@@ -12,6 +12,11 @@ docker compose up -d
 5. Ejcutar comando ```npm run dev```
 6. Ejecutar el SEED para [crear la base de datos local](localhost:3000/api/sed)
 
+## Note
+Usuario por defecto: carlos@mail.com
+CPntrasena: 12345678
+
+
 # Prisma Commands
 1. Para inicializar el Prixma configutre
 ```npx prisma init```

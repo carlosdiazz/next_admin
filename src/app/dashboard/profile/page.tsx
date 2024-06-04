@@ -15,10 +15,11 @@ export default function ProfilePage() {
       <h1>Page Profile</h1>
       <hr />
 
-      <div className="flex dlex-col">
+      <div className="flex flex-col">
         <span>{session?.user?.name ?? "No name"}</span>
         <span>{session?.user?.email ?? "No Email"}</span>
         <span>{session?.user?.image ?? "No Image"}</span>
+        <span>{session?.user?.roles?.join(', ') ?? ['no-role']}</span>
       </div>
     </div>
   );

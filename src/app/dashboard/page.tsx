@@ -11,12 +11,16 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 ">
+    <div className="grid gap-6 grid-cols-1 ">
       <WidgetItem title="Usuario Conectado S-side">
         <div className="flex flex-col">
           <span>Nombre: {session.user?.name}</span>
           <span>Imagen: {session.user?.image}</span>
           <span>Correo: {session.user?.email }</span>
+        </div>
+
+        <div>
+          {JSON.stringify(session)}
         </div>
       </WidgetItem>
     </div>
